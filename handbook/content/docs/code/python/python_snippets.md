@@ -35,9 +35,9 @@ LOG_FILE_PATH: Optional[Path] = None
 """Path where to save the file log. Set to `None` to suppress file logging."""
 
 # TODO: Change this to the name of the module. This is the root logger.
-root_logger = log.getLogger("MyModule")
+root_logger = logging.getLogger("MyModule")
 root_logger.setLevel(logging.DEBUG) # Do not change this! The actual levels are sat later on.
-root_logger.propagate = FALSE
+root_logger.propagate = False
 
 class ColorFormatter(logging.Formatter):
     # Change this dictionary to suit your coloring needs!
@@ -59,7 +59,7 @@ class ColorFormatter(logging.Formatter):
             record.levelname = color + record.levelname + reset
         return logging.Formatter.format(self, record)
 
-console_formatter = ColorFormatter(format)
+console_formatter = ColorFormatter(FORMAT)
 
 # If you don't need file logging, this can be deleted
 if LOG_FILE_PATH:
@@ -74,12 +74,12 @@ if LOG_FILE_PATH:
     )
     file_h.setFormatter(file_formatter)
     file_h.setLevel(logging.DEBUG) # The level of the file log is set here.
-    log.addHandler(file_h)
+    root_logger.addHandler(file_h)
 
 stream_h = StreamHandler()
 stream_h.setFormatter(console_formatter)
 stream_h.setLevel(logging.DEBUG) # The level of the stream log is set here.
-log.addHandler(stream_h)
+root_logger.addHandler(stream_h)
 ```
 
 Note: In a small script, or in other places where you do not need pretty logging, you can just run [`logging.basicConfig()`](https://docs.python.org/3/library/logging.html#logging.basicConfig) to start logging faster.
