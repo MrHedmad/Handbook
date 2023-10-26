@@ -14,8 +14,9 @@ draft: false # If this is true, the page will not be included in the live site o
 ---
 
 # Writing Protocols
-> How to structure and write wet-lab protocols
 ![Draft](https://img.shields.io/badge/status-draft-red)
+
+> How to structure and write wet-lab protocols.
 
 {{< hint warning >}}
 This page is still a draft because I'm still writing it.
@@ -129,8 +130,83 @@ When writing a protocol we must keep in mind these principles:
   re-run an old experiment).
 - It must give credit to whoever designed it, tested it, or validated it.
 
-With this in mind, we can defined what are the *minimal* things that we have to
-specify when writing protocols:
+With this in mind, we can define what the *minimal* things that we have to
+specify when writing protocols are:
+- The **name** of the protocol;
 - The **author** of the protocol;
+- Who **validated** the protocol, both in written form and in the real lab;
+- The **version** of the protocol;
+- The **license** of the protocol;
+  - Read [this page from the turing way](https://the-turing-way.netlify.app/reproducible-research/licensing.html)
+    to learn about why you should license everything you do.
+- Why this protocol is **useful**, in other words, what it does;
+- Why this protocol might not be useful, in other words, what it fails to do, 
+  its limitations.
+- What is the protocol's *input*, what it takes in to be processed, what is
+  the subject of the protocol.
+  - The input to a protocol is commonly a **biological entity**, which must be
+    thoroughly described (see below), but it could also be data, a chemical or
+    other non-biological (or generally 'simple') materials.
+  - A protocol may have more than one (type of) input.
+- What is the protocols' *output*, what it produces, what is the ultimate
+  product of the protocol.
+  - A protocol's input might be another's output, so how we describe inputs and
+    outputs are actually the same.
+    Having said this, many protocols output a generally simpler form of the
+    inputs, or even only data (for destructive, measuring protocols).
+- What the protocol requires in terms of **reagents** and **equipment**.
+  - Someone that does not have such reagents or equipment will not be able
+    to run the protocol.
+  - A lot of variability can come from which reagents or equipment one uses,
+    so it is important to keep them under control by specifying what was used
+    (as well as how).
+- What the **steps** of the protocol are.
+  - This is - of course - the meat of the matter. Having specified everything
+    else, this task gets much easier. However, it's still very hard.
+    There's a section dedicated to this later.
 
+Optionally, one can also include:
+- The 
+
+### Title
+It must be clear, unambiguous and specific. Must not contain abbreviations or
+trivial adjectives (fast, novel...).
+Do not be afraid to make it long, but keep it under 100/150 characters.
+
+> **BAD**: "A fast, easy protocol to culture cell lines."
+> - Fast and easy are meaningless here.
+> - What cell lines? Purpose unclear.
+> 
+> **GOOD**: "Protocol to culture PANC1 cells for cell line propagation."
+> - Specific.
+> - Not ambiguous.
+
+### Authors
+Information about the author should include full name and unique ID (ORCID), as
+well as affiliation information (can usually be omitted if the protocol is for
+internal consumption only).
+
+> **BAD**: "Luca V."
+> 
+> **GOOD**: "Visentin, Luca - ORCID: 0000-0000-0000-0000 - University of Turin."
+
+### Validation
+
+### Versioning
+Since we need to be able to retrieve each protocol in perpetuity, its version
+has to be recorded carefully.
+There are many ways to do this:
+- A date (`YYYY-MM-DD`) helps to convey when the protocol was last updated,
+  but it's not immediately obvious when a version in newer than the last one.
+- A simple number (`1`, `2`, etc...) is perfect if you only care about
+  the order of the version, but does not convey well what the scope of the
+  change is, or when it was made.
+- A series of numbers, or "[semantic versioning](https://semver.org)", helps
+  convey the scope of the change. E.g. version `2.2` is closer to version `2.0`
+  than version `3.0`, for example.
+It is ultimately up to you to decide what versioning scheme it's best for
+your protocols, but I advise writing down something like semantic versioning
+combined with a date (e.g. `X.Y.Z - YYYY-MM-DD`).
+
+You can also (optionally) add a list of changes made between versions.
 

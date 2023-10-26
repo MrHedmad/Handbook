@@ -42,9 +42,9 @@ This is not the first handbook of its kind, of course. Other very useful online 
 Thanks to everyone who contributed to the handbook! A list of contributors can be found in the [GitHub Readme file](https://github.com/MrHedmad/Handbook).
 
 ## The Index
-- [Writing Protocols](/docs/wetwork/writing_protocols.md): How to structure and write wet-lab protocols
 - [GNU make](/docs/project_structure/using_make.md): How to use `make` to automate project execution.
 - [Structuring Bioinformatics Projects](/docs/project_structure/structuring_a_project.md): How to structure the filesystem of a bioinformatics project.
-- [Python Snippets](/docs/code/python/python_snippets.md): Useful, copy-pastable python snippets and how to use them.
-- [Python Tips](/docs/code/python/python_tips.md): Tips and tricks to keep in mind when writing Python code.
+- [Writing Protocols](/docs/wetwork/writing_protocols.md): How to structure and write wet-lab protocols
 - [Python CLI Tools](/docs/code/python/python_tools.md): How to (quickly) write neat, clean command line tools in Python.
+- [Python Tips](/docs/code/python/python_tips.md): Tips and tricks to keep in mind when writing Python code.
+- [Python Snippets](/docs/code/python/python_snippets.md): Useful, copy-pastable python snippets and how to use them.
