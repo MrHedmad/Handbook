@@ -14,12 +14,13 @@ draft: false # If this is true, the page will not be included in the live site o
 ---
 
 # Writing Protocols
-![Draft](https://img.shields.io/badge/status-draft-red)
+![Ongoing](https://img.shields.io/badge/status-ongoing-orange)
 
 > How to structure and write wet-lab protocols.
 
 {{< hint warning >}}
-This page is still a draft because I'm still writing it.
+This page is still under review, although that most of the things I want to 
+touch on are already written.
 {{< /hint >}}
 
 ## Aim
@@ -144,16 +145,8 @@ specify when writing protocols are:
   its limitations.
 - What is the protocol's *input*, what it takes in to be processed, what is
   the subject of the protocol.
-  - The input to a protocol is commonly a **biological entity**, which must be
-    thoroughly described (see below), but it could also be data, a chemical or
-    other non-biological (or generally 'simple') materials.
-  - A protocol may have more than one (type of) input.
 - What is the protocols' *output*, what it produces, what is the ultimate
   product of the protocol.
-  - A protocol's input might be another's output, so how we describe inputs and
-    outputs are actually the same.
-    Having said this, many protocols output a generally simpler form of the
-    inputs, or even only data (for destructive, measuring protocols).
 - What the protocol requires in terms of **reagents** and **equipment**.
   - Someone that does not have such reagents or equipment will not be able
     to run the protocol.
@@ -164,9 +157,6 @@ specify when writing protocols are:
   - This is - of course - the meat of the matter. Having specified everything
     else, this task gets much easier. However, it's still very hard.
     There's a section dedicated to this later.
-
-Optionally, one can also include:
-- The 
 
 ### Title
 It must be clear, unambiguous and specific. Must not contain abbreviations or
@@ -209,4 +199,79 @@ your protocols, but I advise writing down something like semantic versioning
 combined with a date (e.g. `X.Y.Z - YYYY-MM-DD`).
 
 You can also (optionally) add a list of changes made between versions.
+
+### Inputs and outputs
+The input to a protocol is commonly a **biological entity**, which must be
+thoroughly described (see below), but it could also be data, a chemical or
+other non-biological (or generally 'simple') materials.
+A protocol may have more than one (type of) input.
+
+A protocol's input might be another's output, so how we describe inputs and
+outputs are actually the same.
+Having said this, many protocols output a generally simpler form of the
+inputs, or even only data (for destructive, measuring protocols).
+
+What should we annotate the different inputs and outputs with?
+Well, each different kind of input and output carries with it different
+necessary metadata.
+For this reason, we can define these categories and associated metadata
+before writing any protocols, and use them as needed.
+
+For instance, a **biological entity** is anything in biological nature.
+We need to annotate:
+- The name of the entity, including the strain or genotype;
+- Its identifier (where was it bought? Is there an international ID?)
+- The portion of the entity, if applicable (e.g. an organ, a leaf, etc...)
+- Its preservation status (e.g. frozen, in solution, etc...)
+
+Data is also special, as there already are different types of data with
+different formats.
+When writing metadata for data files, the most important thing to annotate is
+the content of the files, not their structure.
+Therefore, we can list a number of files and their structures, and fix them.
+With that out of the way, we can focus on describing the data proper.
+For instance, we can define the comma-separated format as:
+- A file in the `csv` format;
+- with the first row containing column names;
+- with all other rows containing data;
+- with no empty fields;
+- encoded with UTF-8.
+With these "housekeeping" aspects out of the way, we can focus on the content,
+which probabaly is a description of all the columns of the data.
+
+## Experiments
+Once we have a set of protocols, we can chain them up as experiments.
+As I said, an experiment is something that attempts to answer an experimental question.
+For this reason, experiments tend to change slightly at each execution, both
+in terms of the variable under test (how much drug is given to cells...) and
+the experimental procedure.
+Additionally, it is that at this level that we actually have to collect and
+store metadata.
+
+Having protocols be well defined helps us with the design of protocols as well.
+Designing an experiment is a task of combining the different experimental
+protocols (eventually writing new ones) by matching the different inputs and
+outputs.
+
+For metadata, one simply has to "sum up" every metadata produced by the various protocols.
+However, some metadata might become useless in the context of a larger 
+experiment, as some data produced along the way.
+You will therefore have to judge what to keep and what to discard.
+
+An experiment must contain:
+- A title;
+- What the experiment is trying to answer;
+- What metadata ultimately needs to be collected while doing the experiment;
+
+## Projects
+Projects collect experiments together.
+Having everything defined in the lower steps means that you can quite clearly
+define your projects as simple collections of experiments.
+What is important to do is to define an ID for the project with which to label
+all products of the experiments in the project.
+
+You could create a formal document that collects all of this information, but
+it generally is not terribly important as data archiviation platforms (e.g.
+Zenodo) can already give you a way to categorize experiments as part of a
+larger project.
 
